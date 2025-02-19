@@ -17,10 +17,11 @@ Route::get('/home', function () {
     return view('home', ['vinyles' => $vinyles]);
 });
 
-Route::get('/vinyles/{id}', function ($id)
-{
-    $vinyle = Vinyles::find($id);
+Route::get(
+    '/vinyles/{id}',
+    function ($id) {
+        $vinyle = Vinyles::find($id);
 
-    return view('vinyle', ['vinyle' => $vinyle]);
-}
+        return view('vinyle', ['vinyle' => $vinyle]);
+    }
 );

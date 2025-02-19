@@ -31,6 +31,9 @@
             </div>
         </div>
     </div>
+    <div>
+        {{ $vinyles->links() }}
+    </div>
 
 
 
