@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vinyl', function (Blueprint $table) {
+        Schema::create('artists', function (Blueprint $table) {
             $table->id();
+            $table->string('author');
+            $table->boolean('isKnown')->default(true);
             $table->timestamps();
-            $table->string('name');
-            $table->string('img');
-            // $table->unsignedBigInteger('artist_id');
-            $table->foreignIdFor(\App\Models\Artist::class);
+
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vinyl');
+        Schema::dropIfExists('artists');
     }
 };

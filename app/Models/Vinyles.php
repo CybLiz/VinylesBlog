@@ -3,12 +3,27 @@
 namespace App\Models;
 use Illuminate\Support\Arr;
 use Illuminate\Database\Eloquent\Model;  
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class Vinyles extends Model
 {
+    use HasFactory;
     protected $table ="vinyl";
-    protected $fillable = ["name","img","author"];
-}
+    protected $fillable = ["name","img"];
+
+    // Chercher a quel artiste appartient ce titre "vinyle"
+
+    public function artist(){
+        return $this->belongsTo(Artist::class);
+    }
+    
+    public function tag(){
+        return $this->belongsToMany(Tag::class);
+    }
+    
+    
+};
 
 
 // class Vinyles 
