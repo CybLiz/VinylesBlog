@@ -8,7 +8,7 @@ class Artist extends Model
 {
     /** @use HasFactory<\Database\Factories\ArtistFactory> */
     use HasFactory;
-    protected $fillable = ["author", "isKnown"];
+    protected $fillable = ["name", "country", "birth_year"];
 
     
     public function vinyles(){

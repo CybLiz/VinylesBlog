@@ -10,17 +10,29 @@ class Vinyles extends Model
 {
     use HasFactory;
     protected $table ="vinyl";
-    protected $fillable = ["name","img"];
+    protected $fillable = ["img","title","release_year","label","description"];
 
     // Chercher a quel artiste appartient ce titre "vinyle"
 
     public function artist(){
         return $this->belongsTo(Artist::class);
     }
+
+    public function comment(){
+        return $this->hasMany(Comment::class);
+    }
+
+    public function musicGenre(){
+        return $this->belongsToMany(MusicGenre::class);
+    }
+    
     
     public function tag(){
         return $this->belongsToMany(Tag::class);
     }
+    
+    
+   
     
     
 };

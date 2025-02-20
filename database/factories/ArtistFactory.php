@@ -18,8 +18,11 @@ class ArtistFactory extends Factory
     {
         return [
                 
-                'author'=> fake()->name(),
-                'isKnown' =>true,
+                'name'=> fake()->name(),
+                'country'=> fake()->country(),
+                'birth_year'=> fake()->year(),
+                'created_at'=> fake()->date(),
+                'updated_at'=> fake()->date(),
             
         ];
     }

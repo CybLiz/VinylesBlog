@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
-            $table->string('author');
-            $table->boolean('isKnown')->default(true);
-            $table->timestamps();
+            $table->string('name');
+            $table->string('country');
+            $table->date('birth_year');
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
+
+            // $table->boolean('isKnown')->default(true);
 
         });
     }

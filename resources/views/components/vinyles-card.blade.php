@@ -10,13 +10,13 @@
     </a>
     <div class="mt-4 flex justify-between">
         <div>
-            <p class="mt-1 text-sm text-gray-500"> {{ $vinyle['name'] }}</p>
+            <p class="mt-1 text-sm text-gray-500"> {{ $vinyle['title'] }}</p>
         </div>
         {{-- eager loading --}}
-        {{-- <p class="text-sm font-medium text-gray-900"> {{ $artist['author'] }}</p> --}}
+        <p class="text-sm font-medium text-gray-900"> {{ $artist['artist'] }}</p>
 
         {{-- lazy loading --}}
-        <p class="text-sm font-medium text-gray-900"> {{ $vinyle->artist->author}}</p>
+        {{-- <p class="text-sm font-medium text-gray-900"> {{ $vinyle->artist->author}}</p> --}}
 
     </div>
 </div>

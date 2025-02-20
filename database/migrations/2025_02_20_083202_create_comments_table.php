@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vinyl', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('img');
-            $table->string('title');
-            $table->timestamp('release_year');
-            $table->string('label');
-            $table->string('description');
+            $table->string('content');
+            $table->foreignIdFor(\App\Models\User::class, 'user_id')->constrained();
+            $table->foreignIdFor(\App\Models\Vinyles::class, 'vinyles_id')->constrained();
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
-            // $table->unsignedBigInteger('artist_id');
-            $table->foreignIdFor(\App\Models\Artist::class)->constrained()->name('artist_id');
         });
     }
 
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vinyl');
+        Schema::dropIfExists('comments');
     }
 };
