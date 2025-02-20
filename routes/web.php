@@ -1,9 +1,11 @@
 <?php
 
-use App\Models\Artist;
 use Illuminate\Support\Facades\Route;
 use App\Models\Vinyles;
-use App\Models\Comment;
+use Illuminate\Http\Request;
+
+
+
 
 
 use function Pest\Laravel\get;
@@ -28,4 +30,36 @@ Route::get(
         $vinyle = Vinyles::with('comment')->find($id);
         return view('vinyle', ['vinyle' => $vinyle]);
     }
+
+
 );
+
+Route::get('/addvinyl', function () {
+    return view('addVinyl');
+});
+
+Route::post('/addvinyl', function (Request $request) {
+
+    $request->validate([
+        'img' => 'string',
+        'title' => 'required|string|max:255',
+        'release_year' => 'required|integer',
+        'label' => 'required|string|max:255',
+        'description' => 'required|string',
+        'artist_id' => 'required|string',
+
+
+    ]);
+
+    Vinyles::create([
+
+        'img' => $request->input('img'),
+        'title' => $request->input('title'),
+        'release_year' => $request->input('release_year'),
+        'label' => $request->input('label'),
+        'description' => $request->input('description'),
+        'artist_id' => $request->input('artist_id'),
+    ]);
+
+    return redirect('/home')->with('success', 'Vinyle ajouté avec succès !');
+});

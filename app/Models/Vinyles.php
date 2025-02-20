@@ -10,7 +10,7 @@ class Vinyles extends Model
 {
     use HasFactory;
     protected $table ="vinyl";
-    protected $fillable = ["img","title","release_year","label","description"];
+    protected $fillable = ["img","title","release_year","label","description", "artist_id"];
 
     // Chercher a quel artiste appartient ce titre "vinyle"
 

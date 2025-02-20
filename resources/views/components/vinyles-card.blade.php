@@ -13,7 +13,7 @@
             <p class="mt-1 text-sm text-gray-500"> {{ $vinyle['title'] }}</p>
         </div>
         {{-- eager loading --}}
-        <p class="text-sm font-medium text-gray-900"> {{ $artist['artist'] }}</p>
+        <p class="text-sm font-medium text-gray-900"> {{ optional($vinyle->artist)->name }}</p>
 
         {{-- lazy loading --}}
         {{-- <p class="text-sm font-medium text-gray-900"> {{ $vinyle->artist->author}}</p> --}}
